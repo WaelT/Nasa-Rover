@@ -1,0 +1,14 @@
+﻿@model ResponseViewModel
+@if (Model.HasError)
+{
+    <script>alert("@Model.ErrorMessage");</script>
+}
+
+@foreach (var response in Model.ResponseList)
+{
+    foreach (var photo in response.photos)
+    {
+        <p>Date: @photo.earth_date Rover Name: @photo.rover.name</p>
+        <img src="@Url.Content(photo.img_src)" alt="tbd" />
+    }
+}

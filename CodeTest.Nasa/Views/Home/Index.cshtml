@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<SelectListItem>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@using(Html.BeginForm("GetImages", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.DropDownList("roverName", @Model, "Choose a rover", new {  @class = "form-control" })
+
+    <input type="submit" value="Submit" />
+}
